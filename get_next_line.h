@@ -6,14 +6,14 @@
 /*   By: scamargo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 20:39:23 by scamargo          #+#    #+#             */
-/*   Updated: 2018/01/22 16:18:36 by scamargo         ###   ########.fr       */
+/*   Updated: 2018/01/22 18:33:16 by scamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE  1
+# define BUFF_SIZE  4096
 # define MAX_FD 4864
 
 # include "stdlib.h"

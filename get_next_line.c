@@ -6,7 +6,7 @@
 /*   By: scamargo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 20:35:38 by scamargo          #+#    #+#             */
-/*   Updated: 2018/01/22 18:43:37 by scamargo         ###   ########.fr       */
+/*   Updated: 2018/01/22 18:57:08 by scamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int static	get_line(const int fd, char **str_arr, char **line)
 	char *new;
 	
 	i = 0;
-	if((new = ft_strchr(str_arr[fd], '\n')))
+	if ((new = ft_strchr(str_arr[fd], '\n')))
 	{
 		*new = '\0';
 		new++;
@@ -28,6 +28,8 @@ int static	get_line(const int fd, char **str_arr, char **line)
 	}
 	*line = str_arr[fd];
 	str_arr[fd] = "";
+	if (**line)
+		return (1);
 	return (0);
 }
 

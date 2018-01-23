@@ -6,7 +6,7 @@
 /*   By: scamargo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 20:35:38 by scamargo          #+#    #+#             */
-/*   Updated: 2018/01/22 18:57:08 by scamargo         ###   ########.fr       */
+/*   Updated: 2018/01/22 18:59:20 by scamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int			get_next_line(const int fd, char **line)
 	{
 		buff[reader] = '\0';
 		if (!str_arr[fd])
-			str_arr[fd] = ft_strdup(buff); //protext
+			str_arr[fd] = ft_strdup(buff);
 		else
 		{
 			temp = str_arr[fd];
-			str_arr[fd] = ft_strjoin(str_arr[fd], buff); //protect
+			str_arr[fd] = ft_strjoin(str_arr[fd], buff);
 			free(temp);
 		}
 	}

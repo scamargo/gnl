@@ -6,17 +6,17 @@
 /*   By: scamargo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 20:35:38 by scamargo          #+#    #+#             */
-/*   Updated: 2018/01/22 18:59:20 by scamargo         ###   ########.fr       */
+/*   Updated: 2018/01/22 20:56:17 by scamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int static	get_line(const int fd, char **str_arr, char **line)
+static int	get_line(const int fd, char **str_arr, char **line)
 {
-	int i;
-	char *new;
-	
+	int		i;
+	char	*new;
+
 	i = 0;
 	if ((new = ft_strchr(str_arr[fd], '\n')))
 	{
@@ -39,9 +39,9 @@ int			get_next_line(const int fd, char **line)
 	char		buff[BUFF_SIZE + 1];
 	int			reader;
 	char		*temp;
-		
+
 	if (fd < 0 || read(fd, buff, 0) < 0)
-    	return (-1);
+		return (-1);
 	while ((reader = read(fd, buff, BUFF_SIZE)))
 	{
 		buff[reader] = '\0';

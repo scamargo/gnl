@@ -6,34 +6,32 @@
 /*   By: scamargo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 20:35:38 by scamargo          #+#    #+#             */
-/*   Updated: 2018/01/22 18:30:22 by scamargo         ###   ########.fr       */
+/*   Updated: 2018/01/22 18:43:37 by scamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char static	*get_line(const int fd, char **str_arr)
+int static	get_line(const int fd, char **str_arr, char **line)
 {
 	int i;
 	char *new;
-	char *result;
-	//read str until you find newline
+	
 	i = 0;
 	if((new = ft_strchr(str_arr[fd], '\n')))
 	{
-		//null terminated next line and move arr pointer
 		*new = '\0';
 		new++;
-		result = str_arr[fd];
+		*line = str_arr[fd];
 		str_arr[fd] = new;
-		return (result);
+		return (1);
 	}
-	result = str_arr[fd];
+	*line = str_arr[fd];
 	str_arr[fd] = "";
-	return (result);
+	return (0);
 }
 
-int		get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
 	static char *str_arr[MAX_FD];
 	char		buff[BUFF_SIZE + 1];
@@ -54,8 +52,5 @@ int		get_next_line(const int fd, char **line)
 			free(temp);
 		}
 	}
-	*line = get_line(fd, str_arr);
-	if (**line)
-		return (1);
-	return (0);
+	return (get_line(fd, str_arr, line));
 }

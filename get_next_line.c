@@ -6,7 +6,7 @@
 /*   By: scamargo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 20:35:38 by scamargo          #+#    #+#             */
-/*   Updated: 2018/01/22 20:56:17 by scamargo         ###   ########.fr       */
+/*   Updated: 2018/01/22 22:09:57 by scamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			get_next_line(const int fd, char **line)
 	int			reader;
 	char		*temp;
 
-	if (fd < 0 || read(fd, buff, 0) < 0)
+	if (line == NULL || fd < 0 || read(fd, buff, 0) < 0 || fd > FD_LIMIT)
 		return (-1);
 	while ((reader = read(fd, buff, BUFF_SIZE)))
 	{

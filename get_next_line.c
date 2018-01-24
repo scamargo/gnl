@@ -6,7 +6,7 @@
 /*   By: scamargo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/03 20:35:38 by scamargo          #+#    #+#             */
-/*   Updated: 2018/01/22 22:16:05 by scamargo         ###   ########.fr       */
+/*   Updated: 2018/01/23 23:42:45 by scamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ int			get_next_line(const int fd, char **line)
 			str_arr[fd] = ft_strjoin(str_arr[fd], buff);
 			free(temp);
 		}
+	}
+	if (!reader && !str_arr[fd])
+	{
+		*line = "";
+		return (0);
 	}
 	return (get_line(fd, str_arr, line));
 }
